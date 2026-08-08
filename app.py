@@ -1,5 +1,5 @@
 import streamlit as st
-from llm_helper import ask_gemini
+from llm_helper import ask_llm
 
 st.set_page_config(
     page_title="AI Job Description Analyzer",
@@ -10,7 +10,7 @@ st.set_page_config(
 st.title("🤖 AI Job Description Analyzer")
 
 st.write(
-    "Paste a Job Description below and let AI analyze it using Gemini."
+    "Paste a Job Description below and let AI analyze it using Llama 3.3."
 )
 
 job_description = st.text_area(
@@ -23,6 +23,7 @@ if st.button("Analyze JD"):
 
     if job_description.strip() == "":
         st.warning("Please paste a Job Description.")
+
     else:
 
         with st.spinner("Analyzing..."):
@@ -47,7 +48,7 @@ Job Description:
 {job_description}
 """
 
-            result = ask_gemini(prompt)
+            result = ask_llm(prompt)
 
         st.success("Analysis Complete!")
 

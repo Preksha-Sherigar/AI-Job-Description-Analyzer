@@ -8,7 +8,8 @@ client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
 
-def ask_gemini(prompt):
+
+def ask_llm(prompt):
 
     chat_completion = client.chat.completions.create(
         messages=[
